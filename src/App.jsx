@@ -92,6 +92,31 @@ export default function SamurAILanding() {
         </div>
       </section>
 
+      {/* FEATURED IMAGE SECTIONS */}
+      <section className="mx-auto max-w-6xl px-6 pb-10 md:pb-16">
+        <div className="space-y-8 md:space-y-10">
+          <ImageFeature
+            title="Precision Blend, Clean Finish"
+            paragraph="Our lightweight oil absorbs fast to soften and condition without residue—leaving beard and skin balanced, comfortable, and camera-ready."
+            imageSrc="/images/feature-1.png"
+            imageAlt="SamurAI Beard Oil feature image 1"
+          />
+          <ImageFeature
+            title="Hydration That Lasts"
+            paragraph="Deep, lasting moisture tames coarseness and flyaways so your beard sits neatly all day."
+            imageSrc="/images/feature-2.png"
+            imageAlt="SamurAI Beard Oil feature image 2"
+            reverse
+          />
+          <ImageFeature
+            title="Subtle, Confident Scent"
+            paragraph="Clean modern notes with a hint of cedar and yuzu—refined, never overpowering."
+            imageSrc="/images/feature-3.png"
+            imageAlt="SamurAI Beard Oil feature image 3"
+          />
+        </div>
+      </section>
+
       {/* CTA / BUY */}
       <section id="buy" className="mx-auto max-w-6xl px-6 pb-16">
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-900 to-neutral-800 p-6 md:p-8">
@@ -135,6 +160,24 @@ export default function SamurAILanding() {
 /* -----------------------------
  * Reusable components & icons
  * ----------------------------*/
+function ImageFeature({ title, paragraph, imageSrc, imageAlt, reverse = false }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+      <div className={`grid grid-cols-1 items-center gap-8 md:grid-cols-2`}>
+        <div className={reverse ? 'md:order-2' : ''}>
+          <h4 className="text-2xl font-semibold tracking-tight md:text-3xl">{title}</h4>
+          <p className="mt-2 max-w-prose text-neutral-300">{paragraph}</p>
+        </div>
+        <div className={reverse ? 'md:order-1' : ''}>
+          <div className="relative mx-auto w-full max-w-md rounded-xl bg-neutral-900/40 p-2 ring-1 ring-white/10">
+            <img src={imageSrc} alt={imageAlt} className="rounded-lg shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function BenefitCard({ icon, title, desc }) {
   return (
     <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-red-500/40 hover:bg-red-500/5">
